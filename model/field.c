@@ -4,16 +4,16 @@
 
 char** createField(int size)
 {
-    int *a = (int *) malloc(10 * sizeof(*a));//память для 10 элеметов типа int 
-
-    if(a == 0)
-        printf("Память какого-то хрена не выделилась");
-    free(a);
-    
     char **field = (char **)malloc(size * sizeof(char *));
-    for(char i = 0; i < size; i++) 
+    for(int i = 0; i < size; i++) 
     {
         field[i] = (char *)malloc(size * sizeof(char));
+    }
+    
+    for(int i = 0; i < size; i++)
+    {
+        for(int j = 0; i < size; j++)
+                field[i][j] = ' ';   /* Заполнение пробелами */ 
     }
 //тут тип заполнение '\0'
     return field;
@@ -21,5 +21,10 @@ char** createField(int size)
 
 void deleteField(char ** field, int size)
 {
+    for(int i = 0; i < size; i++) 
+    {
+        free(field[i]);
 
+    }
+    free(field);
 }
