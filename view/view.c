@@ -3,34 +3,30 @@
 main()
 {
 	int N,i,j;
-	scanf("%d", &N);
-	char A[N][N];
-	for (i = 0; i < N; i++){
-	for (j = 0; j < N; j++){
-		/*A[i][j] = 10 + rand()% (20-10+1);*/
-		if (j == 1){
-			A[i][j] = *("|");
+	char A[7];
+	puts("-------");
+	for (i = 0; i < 3; i++){
+	for (j = 0; j < 7; j++){
+		if (j == 0){
+			A[j] = *("|");
 		}
-		else if (j == 3) {
-			A[i][j] = *("|");
+		else if (j == 2) {
+			A[j] = *("|");
+		}
+		else if (j == 4) {
+			A[j] = *("|");
+		}
+		else if (j == 6) {
+			A [j] = *("|");
 		}
                 else {
-                        A[i][j] = *("-");
+                        A[j] = *("#");
                 }
-		if (i == 1 && j != 1) {
-        	        A[i][j] = *("_");
-	        }
-       		else if (i == 3 && j != 3) {
-               		A[i][j] = *("_");
-        	}
-        	else {
-            	    A[i][j] = *("-");
-        	}
-
-		printf("%c", A[i][j]);
+		
+		printf("%c", A[j]);
 		}
-	puts("\n");
+
+	printf("\n-------\n");
 }
-printf("%d ", A[0][1]); //Проверка
 	return 0;
 }
