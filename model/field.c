@@ -15,7 +15,7 @@ char** createField(int size)
         for(int j = 0; i < size; j++)
                 field[i][j] = ' ';   /* Заполнение пробелами */ 
     }
-//тут тип заполнение '\0'
+
     return field;
 }
 
