@@ -2,30 +2,30 @@
 #include <stdlib.h> /*malloc и т.д*/
 #include "field.h"
 
-char **createField(int size)
+char **createField(int fieldSize)
 {
-    char **field = (char **)malloc(size * sizeof(char *));
-    for(int i = 0; i < size; i++) 
+    char **field = (char **)malloc(fieldSize * sizeof(char *));
+    for(int line = 0; line < fieldSize; line++) 
     {
-        field[i] = (char *)malloc(size * sizeof(char));
+        field[line] = (char *)malloc(fieldSize * sizeof(char));
     }  
     
-    printf("Hello World in createField\n");
-    
-    //for(int i = 0; i < size; i++)
-    //{
-    //    for(int j = 0; i < size; j++)
-    //        field[i][j] = ' ';   /* Заполнение пробелами */ 
-    //}
+    for(int line = 0; line < fieldSize; line++)
+    {
+        for(int column = 0; column < fieldSize; column++)
+        {
+            field[line][column] = ' ';   /* Заполнение пробелами */ 
+        }
+    }
+
     return field;
 }
 
-void deleteField(char ** field, int size)
+void deleteField(char ** field, int fieldSize)
 {
-    for(int i = 0; i < size; i++) 
+    for(int line = 0; line < fieldSize; line++) 
     {
-        free(field[i]);
-
+        free(field[line]);
     }
     free(field);
 }

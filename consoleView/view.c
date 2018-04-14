@@ -2,14 +2,15 @@
 
 void viewField(char ** field, int fieldSize)
 {
-    for(int i = 0; i < fieldSize; i++)
+    for(int line = 0; line < fieldSize; line++)
     {
         printf("| ");
-        for(int j = 0; j < fieldSize; j++)
+        for(int column = 0; column < fieldSize; column++)
         {
-            printf("%s | ", *field[i][j]);
+            printf("%c | ", field[line][column]);
         }
         printf("\n");
     }
+    printf("\n");
 }
 

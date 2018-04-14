@@ -6,20 +6,16 @@
 int main()
 {
     int size = 3;
-    char** field = 0;
-    field = createField(size);
-
-    //viewField(field, size);
-
-    //field = (char **)malloc(size * sizeof(char *));
-    //for(int i = 0; i < size; i++)
-    //{
-    //    field[i] = (char *)malloc(size * sizeof(char));
-    //}
+    char** field = createField(size);
 
     viewField(field, size);
 
+    char** field2 = createField(5);
+
+    viewField(field2, 5);
+
     deleteField(field, size);
+    deleteField(field2, 5);
 
     printf("HEllo world\n");
     return 0;
