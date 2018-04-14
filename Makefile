@@ -7,16 +7,19 @@ PATH_BUILD_MODEL=./build/model/
 PATH_BUILD_CON_VIEW=./build/consoleView/
 OBJECTS=$(PATH_BUILD_MODEL)*.o $(PATH_BUILD_CON_VIEW)*.o ./build/main.o
 
-prog: main.o
+prog: main.o 
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(PROG_NAME) 
 
-main.o: consoleView model main.c
+main.o: view model main.c
 	$(CC) $(CFLAGS) -c main.c -o ./build/main.o
 
-consoleView: ./consoleView/view.c ./consoleView/view.h
+model: field.o
+view: consoleView.o
+
+consoleView.o: ./consoleView/view.c ./consoleView/view.h
 	$(CC) $(CFLAGS) -c ./consoleView/view.c -o $(PATH_BUILD_CON_VIEW)view.o
 
-model: ./model/field.c ./model/field.h
+field.o: ./model/field.c ./model/field.h
 	$(CC) $(CFLAGS) -c ./model/field.c -o $(PATH_BUILD_MODEL)field.o
 
 clean:
