@@ -1,20 +1,26 @@
 CC=gcc
 MAKE=make
+CFLAGS=-g -Wall
 CLEAN=rm -f
-PROGRAM_NAME=project_lvl1
+PROG_NAME=project_lvl1
 PATH_BUILD_MODEL=./build/model/
-PATH_BUILD_CONVIEW=./build/consoleView/
-OBJECTS=$(PATH_BUILD_MODEL)*.o $(PATH_BUILD_CONVIEW)*.o
+PATH_BUILD_CON_VIEW=./build/consoleView/
+OBJECTS=$(PATH_BUILD_MODEL)*.o $(PATH_BUILD_CON_VIEW)*.o ./build/main.o
 
-all: main
-	$(CC) -o $(PROGRAM_NAME) $(OBJECTS) ./build/main.o
+prog: main.o 
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(PROG_NAME) 
 
-main: main.c consoleView model 
-	$(CC) -c main.c -o ./build/main.o
+main.o: view model main.c
+	$(CC) $(CFLAGS) -c main.c -o ./build/main.o
 
-consoleView: ./consoleView/view.c ./consoleView/view.h
-	$(CC) -c ./consoleView/view.c -o $(PATH_BUILD_CONVIEW)view.o
+model: field.o
+view: consoleView.o
 
-model: ./model/field.c ./model/field.h
-	$(CC) -c ./model/field.c -o $(PATH_BUILD_MODEL)field.o
+consoleView.o: ./consoleView/view.c ./consoleView/view.h
+	$(CC) $(CFLAGS) -c ./consoleView/view.c -o $(PATH_BUILD_CON_VIEW)view.o
 
+field.o: ./model/field.c ./model/field.h
+	$(CC) $(CFLAGS) -c ./model/field.c -o $(PATH_BUILD_MODEL)field.o
+
+clean:
+	$(CLEAN) $(OBJECTS) $(PROG_NAME)
