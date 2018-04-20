@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h> /*malloc и т.д*/
-#include "field.h"
 
 char **createField(int fieldSize)
 {
@@ -29,3 +28,5 @@ void deleteField(char ** field, int fieldSize)
     }
     free(field);
 }
+
+

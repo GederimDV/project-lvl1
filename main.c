@@ -5,6 +5,11 @@
 
 int main()
 {
+
+    struct Point point;
+    point.line = 3;
+    point.column = 2;
+    
     int size = 3;
     char** field = createField(size);
 
