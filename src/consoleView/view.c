@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "../model/field.h"
 
 void viewField(char ** field, int fieldSize)
 {
@@ -13,4 +14,5 @@ void viewField(char ** field, int fieldSize)
     }
     printf("\n");
 }
+
 

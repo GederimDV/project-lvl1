@@ -1,13 +1,16 @@
 #ifndef FIELD
 #define FIELD
+#include "player.h"
+#include <stdbool.h>
 
-char **createField(int size);
-void deleteField(char **field, int size);
-bool writeInField( char  **field, struct Point point, struct Player player);
 struct Point
 {
     int line;
     int column;
 };
+
+char **createField(int size);
+void deleteField(char **field, int size);
+bool writeInField( char  **field, struct Point point, struct Player player);
 
 #endif 

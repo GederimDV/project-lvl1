@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h> /*malloc и т.д*/
+#include <stdbool.h>
+#include "player.h"
+#include "field.h"
+
 /* Создает поле определенной размерности и заполняет его пробелами */
 char **createField(int fieldSize)
 {
@@ -19,6 +23,7 @@ char **createField(int fieldSize)
 
     return field;
 }
+
 /* Удаляет поле */
 void deleteField(char ** field, int fieldSize)
 {
@@ -35,7 +40,7 @@ bool writeInField(char **field, struct Point point, struct Player player)
 {
     if(field[point.line][point.column] == ' ') /*если ячейка пуста*/
     {
-        field[point.line][point.column] == player.figure;
+        field[point.line][point.column] = player.figure;
         return true;   /*Запись в поле прошла успешно*/
     }
     else 
