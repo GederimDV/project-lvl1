@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h> /*malloc и т.д*/
-
+/* Создает поле определенной размерности и заполняет его пробелами */
 char **createField(int fieldSize)
 {
     char **field = (char **)malloc(fieldSize * sizeof(char *));
@@ -19,7 +19,7 @@ char **createField(int fieldSize)
 
     return field;
 }
-
+/* Удаляет поле */
 void deleteField(char ** field, int fieldSize)
 {
     for(int line = 0; line < fieldSize; line++) 
@@ -29,4 +29,15 @@ void deleteField(char ** field, int fieldSize)
     free(field);
 }
 
-
+/*Метод записывает символ в свободную ячейку поля, возвращает результат 
+ * записи. Структура плеер содержит символ записи. */
+bool writeInField(char **field, struct Point point, struct Player player)
+{
+    if(field[point.line][point.column] == ' ') /*если ячейка пуста*/
+    {
+        field[point.line][point.column] == player.figure;
+        return true;   /*Запись в поле прошла успешно*/
+    }
+    else 
+        return false;  /*Ячейка занята символом*/
+}
