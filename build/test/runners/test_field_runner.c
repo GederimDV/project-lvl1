@@ -30,6 +30,8 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
+extern void test_createField_deleteField(void );
+extern void test_writeInField(void);
 
 
 /*=======Test Reset Option=====*/
@@ -45,6 +47,8 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_field.c");
+  RUN_TEST(test_createField_deleteField, 4);
+  RUN_TEST(test_writeInField, 35);
 
   return (UnityEnd());
 }

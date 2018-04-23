@@ -11,6 +11,6 @@ struct Point
 
 char **createField(int size);
 void deleteField(char **field, int size);
-bool writeInField( char  **field, struct Point point, struct Player player);
+bool writeInField( char  **field, int fieldSize, struct Point point, struct Player player);
 
 #endif 
