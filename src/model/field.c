@@ -38,7 +38,7 @@ void deleteField(char ** field, int fieldSize)
  * записи. Структура плеер содержит символ записи. */
 bool writeInField(char **field, int fieldSize, struct Point point, struct Player player)
 {
-    if((field[point.line][point.column] == ' ') && (point.line < fieldSize) && (point.column < fieldSize)) /*если ячейка пуста и не произошло выхода*/
+    if((point.line < fieldSize) && (point.column < fieldSize) && (field[point.line][point.column] == ' ')) /*если ячейка пуста и не произошло выхода*/
     {
         field[point.line][point.column] = player.figure;
         return true;   /*Запись в поле прошла успешно*/

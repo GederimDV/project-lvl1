@@ -101,6 +101,60 @@ void test_writeInField(void)
 
 {
 
+    int fieldSize = 3;
+
+    char **field = createField(fieldSize);
+
+    struct Player player1;
+
+    player1.name = "Player 1";
+
+    player1.figure = 'X';
+
+    struct Point point;
+
+    point.line = 1;
+
+    point.column = 1;
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((
+
+   1
+
+   )), (UNITY_INT)((writeInField(field, fieldSize, point, player1))), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((
+
+   0
+
+   )), (UNITY_INT)((writeInField(field, fieldSize, point, player1))), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_INT);
+
+    point.line = 3;
+
+    point.column =3;
+
+    UnityAssertEqualNumber((UNITY_INT)((
+
+   0
+
+   )), (UNITY_INT)((writeInField(field, fieldSize, point, player1))), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(50), UNITY_DISPLAY_STYLE_INT);
+
+
+
 
 
 }

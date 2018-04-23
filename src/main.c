@@ -16,8 +16,8 @@ int main()
     player2.figure = 'O';
 
     struct Point point;
-    point.line = 2;
-    point.column = 2;
+    point.line = 3;
+    point.column = 3;
     
     int fieldSize = 3;//запрос размеров таблицы
     char** field = createField(fieldSize);
@@ -26,6 +26,28 @@ int main()
     writeInField(field, fieldSize, point, player1);
     
     viewField(field, fieldSize);
+    while() //хотите сыграть еще раз 
+    {
+    //выберете размерность поля
+    /* Основной цикл игры */
+        int count = 0;
+        while (count++ < fieldSize)
+        {
+            if (count % 2 = 0)
+            {
+                writeInField(field, fieldSize, point, player1);
 
+                viewField(field, fieldSize);
+                 //Ход Х
+            }
+            else 
+            {
+                writeInField(field, fieldSize, point, player2);
+                //xod 0
+                viewField(field, fieldSize);
+            }
+        }
+        //if count = fieldSize ничья 
+    }
     return 0;
 }
