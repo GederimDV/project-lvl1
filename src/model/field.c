@@ -36,13 +36,13 @@ void deleteField(char ** field, int fieldSize)
 
 /*Метод записывает символ в свободную ячейку поля, возвращает результат 
  * записи. Структура плеер содержит символ записи. */
-bool writeInField(char **field, struct Point point, struct Player player)
+bool writeInField(char **field, int fieldSize, struct Point point, struct Player player)
 {
-    if(field[point.line][point.column] == ' ') /*если ячейка пуста*/
+    if((field[point.line][point.column] == ' ') && (point.line < fieldSize) && (point.column < fieldSize)) /*если ячейка пуста и не произошло выхода*/
     {
         field[point.line][point.column] = player.figure;
         return true;   /*Запись в поле прошла успешно*/
     }
     else 
-        return false;  /*Ячейка занята символом*/
+        return false;  /*Ячейка занята символом или произошел выход*/
 }
